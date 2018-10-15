@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Machine (Statistical) Learning and potential application to chronic disease conditions</title>
+    <meta charset="utf-8">
+    <meta name="author" content="Paola Berchialla       Department of Clinical and Biological Sciences   University of Torino" />
+    <meta name="date" content="2018-10-09" />
+    <link href="libs/remark-css/default.css" rel="stylesheet" />
+    <link href="libs/remark-css/default-fonts.css" rel="stylesheet" />
+    <link rel="stylesheet" href="my_theme.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+class: center, middle, title-slide
+
+# Machine (Statistical) Learning and potential application to chronic disease conditions
+### Paola Berchialla <br /> <br /> <br /> Department of Clinical and Biological Sciences <br /> University of Torino
+### 2018-10-09
+
+---
+
+
+
+
+# Machine Learning in healthcare 
+&lt;img src="slides_files/figure-html/unnamed-chunk-1-1.png" style="display: block; margin: auto;" /&gt;
+
+- Growth of publications in PubMed with term _machine learning_
+- Exponentiated regression of log number of publications on year is used to predict the future trend 
+
+---
+# What is Machine Learning
+
+- Machine learning teaches computers to do __learn__ from experience
+    - Machine learning algorithms use computation methods to _learn_ information directly from data without relying on a predetermined equation to model
+
+- The algorithms adaptively improve their performance as the number of data samples available for learning increases
+
+
+---
+# How Machine Learning works
+
+__Different types of Learning__
+
+- Supervised Learning
+  - output is known and it is used during the training process
+- Unsupervised Learning
+  - output is not provided during the training
+- Other type of Learning
+  - Semi-Supervised Learning
+  - Reinforcement Learning
+.pull-left[]
+.pull.right[
+&lt;img src="images/Learning.png" width="60%" style="display: block; margin: auto 0 auto auto;" /&gt;
+]
+
+---
+# When using Machine Learning
+
+- Large, multi-dimensional and heterogeneous dataset
+- Aimed at extracting knowledge
+  - we know a pattern exists
+- Complex task or problem for which there is not a (recommended) mathematical approach
+- Large collections of data are available
+  - data driven approach
+- Limited prior knowledge
+
+.pull-left[]
+.pull.right[
+&lt;img src="images/When_ML.png" width="50%" style="display: block; margin: auto 0 auto auto;" /&gt;
+]
+---
+class: center, middle, inverse
+
+# Some examples
+
+---
+
+# Predicting cardiovascular disease with EHR 
+
+.pull-left[
+
+- 681 UK General Practicer
+- 383,592 patients free from CVD (since 1st Jan 2005)
+- Two-fold cross validation (similar to other epidemiological studies)
+    - n = 295,267 _training set_
+    - n = 82,989 _validation set_
+- 30 separate included features
+    - including biometrics, clinical history, lifestyle, test results, prescribing
+- Four types of models: logistic, random forest, gradient boosting machines, and neural networks
+]
+
+
+
+.pull-right[
+
+&lt;img src="images/ML-RiskClinicalData.png" width="90%" style="display: block; margin: auto;" /&gt;
+
+]
+
+---
+# Extending searches for SRs with SVM
+
+&lt;img src="images/JCE.png" width="90%" style="display: block; margin: auto;" /&gt;
+
+---
+# Extending searches for SRs with SVM
+
+&lt;img src="images/JCE_table2.png" width="100%" style="display: block; margin: auto;" /&gt;
+
+---
+# ML for predicting readmission to pediatric ED
+
+.pull-left[
+- 28,341 children aged 0-14 accessing the ED of Regina Margherita Children's Hospital 
+  - between October 2012 - April 2013
+- EHR recorded: 
+  - age, sex, nationality 
+  - day of the week, of hospital admission, time of arrival, triage color
+  - ICD9, final diagnosis, medication prescribed and diagnostic test
+  - mode of discharge (at home, to a ward, ...), time lapse between 1st and 2nd visit
+- __Aim:__ predicting risk of early readmission to ED (within 120 hours)
+]
+
+.pull-right[
+&lt;img src="images/HospitalReadmission.png" width="115%" style="display: block; margin: auto;" /&gt;
+]
+
+
+---
+# ML for predicting readmission to pediatric ED
+- ANN's Architecture
+
+&lt;img src="images/ANN.png" width="80%" style="display: block; margin: auto;" /&gt;
+
+- Accuracy: 91.3%
+- Specificity: 98.3%
+- Sensitivity: very low
+---
+# ML for predicting readmission to pediatric ED
+
+- Tree
+&lt;img src="images/CT.png" width="95%" style="display: block; margin: auto;" /&gt;
+- ACC: 81%; SPEC: 97%; SEN: 79.8%
+
+---
+class: center, middle, inverse
+
+# Potential applications to chronic disease conditions
+
+---
+# Q-learning in healthcare
+
+-  Growing segment of elderly living longer with chronic health conditions 
+    - more likely to experience multiple transitions from hospital to home that negatively affect their quality of life and consume substantial healthcare resources
+
+- Analyses attempting to identify patients at risk of readmission are mainly focused on the single re-hospitalization 
+    - they fail to incorporate multiple hospital readmissions and admissions in community services that characterize a chronic condition
+       
+- Need of multistate models that considers all clinical pathways and  assesses their potential dependence on covariates 
+  - multiple hospitalization readmission, home/residential care activations 
+
+---
+# Aims
+
+- Assessing the effect of certain clinical conditions in a community setting on multiple readmissions by including intermediate care services  
+- Enhancing understanding of the clinical pattern of patients with chronic conditions for adverse prognosis 
+    - it can help implementing appropriate intervention strategies 
+    
+- Identifying the global risk profile of patients with clinical complexities according to their transition patterns 
+  - Identifying clinical factors associated with different transitions, i.e. admission, discharge and death 
+- To date, multi-state (statistical) models have been applied for estimating both competing and recurrent events
+  - oncological patients 
+
+---
+
+# Transitions and time-varying confounders
+
+- Effect of disease condition (T0, T1) on the outcome variable Y
+
+.right-column[
+&lt;img src="images/figure_2.bmp" width="90%" style="display: block; margin: auto 0 auto auto;" /&gt;
+]
+---
+# Transitions and time-varying confounders
+
+- Effect of disease condition (T0, T1) on the outcome variable Y
+- Condition in the first period (T0) affects the health status in the next period (L1)
+
+.right-column[
+&lt;img src="images/figure_3.bmp" width="90%" style="display: block; margin: auto 0 auto auto;" /&gt;
+]
+---
+# Transitions and time-varying confounders
+
+- Effect of disease condition (T0, T1) on the outcome variable Y
+- Condition in the first period (T0) affects the health status in the next period (L1)
+- Health status (L1) affects the condition in the next period (T1) `\(\ldots\)`
+
+
+.right-column[
+&lt;img src="images/figure_4.bmp" width="90%" style="display: block; margin: auto 0 auto auto;" /&gt;
+]
+---
+# Transitions and time-varying confounders
+
+- Effect of disease condition (T0, T1) on the outcome variable Y
+- Condition in the first period (T0) affects the health status in the next period (L1)
+- Health status (L1) affects the condition in the next period (T1) `\(\ldots\)`
+- `\(\ldots\)` and the outcome `\(Y\)`
+
+.right-column[
+&lt;img src="images/figure_5.bmp" width="90%" style="display: block; margin: auto 0 auto auto;" /&gt;
+]
+
+---
+# Inverse Probability of Treatment Weighted 
+
+.pull-left[
+- Estimate the outcome-exposure mechanism
+    - How outcome-exposure mechanism depends on the observed past?
+    - Use it to reweight data
+]
+.pull-right[
+- Estimate the _propensity score_ for each time
+`$$g_t = P(T_t\vert L_t, T_{t-1})$$`
+- Estimate the conditional probability of observed history
+`$$g_{0:t^*} = \Pi_{t=0}^{t^*}g_t$$`
+- Inverse weighting of observed outcome with `\(g_{0:t^*}\)`
+]
+
+---
+# Targeted Machine Learning
+
+.pull-left[
+&lt;img src="images/TMLE.png" width="100%" style="display: block; margin: auto;" /&gt;
+]
+
+.pull-right[
+
+`$$\Psi(P_0) = E_{X,0}[E_0(Y|T=1, X) - E_0(Y|T=0, X)]$$`
+
+`$$\Psi(Q_n) = \frac{1}{n}\sum_{i=1}^n[Q^0_n(1, X_i)-Q^0_n(0, X_i)]$$`
+__Objective:__ learn the target parameter of `\(P_0\)` denoted by `\(Q(P_0)\)`:
+- loss function L such that `\(Q_0\)` minimized the risk `\(P_0L(Q)\equiv E_0L(Q)(0)\)`
+]
+
+.footnote[Targeted Learning, MJ van der Laan, S. Rose 2011]
+
+---
+# Two stage methodology
+1. __Super learning__ (M.J van der Lan et al. 2007, E. Polley et al 2012)
+  - uses a library of candidate estimators (parametric models and machine learning algorithms, i.e. neural networks, RandomForest, etc)
+  - builds data-adaptive weighted combination of estimators using cross validation (_ensemble model_)
+
+2. __Targeted estimation__ (M.J van der Lan et al. 2006)
+  - Update initial estimate to remove bias for the parameter of interest 
+  - Update based on parametric submodel through initial estimate with score equal to efficient score/efficient influence curve
+  - Calculate final parameter from updated fit of the data-generating distribution
+---
+# Targeted Maximum Likelihood Estimation
+- Regress outcome on past
+`$$Y\sim L_0 + L_1 + T_0 + T_1$$`
+  - take predictions setting `\(T_0=t_0\)` and `\(T_1=t_1\)`
+  - update predictions using `\(g_{0:1}=\Pi_{t=0}^1 g_t\)`
+
+- Regress updated prediction `\(\hat Y^2\)` on past to previos period
+    - `\(\hat Y^2 \sim L_0 + T_0\)`
+    - take predictions setting up `\(T_0\)`
+     - update predictions using `\(g_0\)`
+- Take average of prediction `\(\hat Y^1\)` over `\(L_0\)`
+
+---
+# Properties
+
+.pull-left[
+- It requires you specify the correct propensity score model
+  - If outcome-exposure mechanism estimated using a misspecified model
+- Subject to bias and high variance with moderate to strong confounding
+  - When certain treatment or exposure levels of interest are rare/absent for some patients
+]
+.pull-right[
+- Minimize bias due to model misspecification
+  - Double robust
+  - Consistent 
+- Maximize precision of effect estimates
+  - Efficient (minimal asymptotic variance in semi-parametric model)
+- May reduce bias and variance compared to IPTW
+- Exploits Machine Learning for model specification
+]
+
+
+---
+class: center, middle
+
+# Thanks!
+
+Slides created via the R package [**xaringan**](https://github.com/yihui/xaringan).
+
+The chakra comes from [remark.js](https://remarkjs.com)
+    </textarea>
+<script src="libs/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"highlightStyle": "github",
+"highlightLines": true,
+"countIncrementalSlides": false
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function() {
+  var d = document, s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})();</script>
+
+  </body>
+</html>
